@@ -62,6 +62,11 @@ runtime : 370.1029086 seconds
 如果您有改进此解码算法的建议，
 请让我知道，非常感谢。
 
+## TODO
+1. 增加一个 BMES 标注的字粒度的 FastHMM 序列标注用例脚本。看看准确率能比现在提升多少。（上面的 93% 是直接扔词进去）
+2. 增加基于 BMES 标注数据的 FastHMM 分词用例脚本。
+3. 增加一个序列标注评估脚本，实现更多指标的自动评测。
+
 ## 参考
 [Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)  
 [Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)
