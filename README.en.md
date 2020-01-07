@@ -63,5 +63,6 @@ If you have suggestions for improving this decoding algorithm,
 please let me know, thank you very much.
 
 ## Reference
-[Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)  
-[Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)
+[MicroHMM](https://github.com/howl-anderson/MicroHMM)   
+[Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)    
+[Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)  
