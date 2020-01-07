@@ -68,6 +68,6 @@ runtime : 370.1029086 seconds
 3. 增加一个序列标注评估脚本，实现更多指标的自动评测。
 
 ## 参考
-[MicroHMM](https://github.com/howl-anderson/MicroHMM)
-[Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)  
-[Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)
+[MicroHMM](https://github.com/howl-anderson/MicroHMM)  
+[Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)    
+[Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)  
