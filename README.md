@@ -57,11 +57,17 @@ predict 57929 tags, 54228 correct,  accuracy 0.9361114467710473
 runtime : 370.1029086 seconds
 ```
 上面的 case 大部分时间消耗都在解码阶段，
-我尝试了多种方法来实现维特比算法，
-我当前使用的实现是当中最快的。
-如果您有改进此解码算法的建议，
-请让我知道，非常感谢。
+尝试了多种方法来实现维特比算法，
+当前使用的实现是其中最快的。
+如果您有改建议，
+欢迎留言，非常感谢。
+
+## TODO
+1. 增加一个 BMES 标注的字粒度的 FastHMM 序列标注用例脚本。（上面的 93% 是词粒度）
+2. 增加基于 BMES 标注数据的 FastHMM 分词用例脚本。
+3. 增加一个序列标注评估脚本，实现更多指标的自动评测。
 
 ## 参考
-[Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)  
-[Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)
+[MicroHMM](https://github.com/howl-anderson/MicroHMM)  
+[Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)    
+[Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm)  
