@@ -5,22 +5,27 @@ from __future__ import unicode_literals
 
 import math
 import os
+import pathlib
 import pickle
 from collections import defaultdict
-import pathlib
-
-from typing import List, Tuple
+from typing import List, Tuple, Union, Set, Dict, DefaultDict
 
 from FastHMM.non_rec_viterbi import Viterbi
 
 
 class HMMModel(object):
     # tag padding for start and end for representation consistency
-    START_STATE = '<start>'
-    END_STATE = '<end>'
+    START_STATE: str = '<start>'
+    END_STATE: str = '<end>'
 
-    def __init__(self, A=None, B=None, PI=None, STATE=None):
-        if A is None:
+    def __init__(
+            self,
+            A: Union[Dict[str, Dict[str, float]], DefaultDict[str, Dict[str, float]]] = None,
+            B: Union[Dict[str, Dict[str, float]], DefaultDict[str, Dict[str, float]]] = None,
+            PI: Union[Dict[str, float], DefaultDict[str, float]] = None,
+            STATE: Union[Set[str]] = None,
+    ):
+        if not A:
             self.A = defaultdict(defaultdict)
             self.B = defaultdict(defaultdict)
             self.PI = {}
@@ -36,7 +41,7 @@ class HMMModel(object):
             self.STATE = STATE
 
     def train_one_line(self, list_of_word_tag_pair):
-        # type(List[Union[List[str, str], Tuple[str, str]]) -> None
+        # type: (List[(Union[List[str, str], Tuple[str, str]])]) -> None
         """
         train model from one line data
         :param list_of_word_tag_pair: list of tuple (word, tag)
@@ -86,7 +91,6 @@ class HMMModel(object):
 
     def predict(self, word_list, ):
         # type: (List[str]) -> List[Tuple[str, str]]
-
         if not self.A:  # using self.A as an training-flag indicate if already trained.
             self.do_train()
 
@@ -133,7 +137,7 @@ if __name__ == "__main__":
     import timeit
     import random
 
-    with open('../data/199801.txt', 'r',encoding='gbk') as f:
+    with open('../data/199801.txt', 'r', encoding='gbk') as f:
         data = [l.split()[1:] for l in f if l.strip() != '']
         data = [[tuple(pair.split('/')) for pair in line] for line in data]
     # TODO: try to training with BMES tagging scheme
@@ -144,7 +148,7 @@ if __name__ == "__main__":
     print('train size {} ,test_size {}'.format(len(train_data), len(test_data)))
 
 
-    def test(hmm_model):
+    def test(hmm_model: HMMModel):
         for d in train_data:
             hmm_model.train_one_line(d)
         print('finish training')
